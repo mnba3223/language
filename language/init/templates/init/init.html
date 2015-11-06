@@ -1,0 +1,76 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>程式語言小百科</title>
+<meta charset=utf-8>
+<style>
+span {
+ color: #ff0000;
+}
+</style>
+<link rel=stylesheet href={%static 'main/css/main.css' %}>
+</head>
+<body>
+{% if not init %}
+ <h1>系統並未初始化，目前資料如下：</h1>
+{% else %}
+ <h1>輸入資料如下：</h1>
+{% endif %}
+<p><b>使用者：</b></p>
+ <table>
+  <tr>
+   <th>帳號</th>
+   <th>名稱類別</th>
+   <th>電郵</th>
+   <th>是員工</th>
+   <th>是管理者</th>
+  </tr>
+{% for user in users %}
+  <tr>
+   <td>{{user.username}}</th>
+   <td>{{user.first_name}}</th>
+   <td>{{user.email}}</th>
+   <td>{{user.is_staff}}</th>
+   <td>{{user.is_superuser}}</th>
+  </tr>
+{% endfor %}
+
+ <table>
+
+ <h1>輸入資料如下：</h1>
+ <p>
+  <b> 程式類別：</b>
+ </p>
+ <ul>
+  {% for category in categories %}
+  <li>{{ category }} (瀏覽：{{category.views}}, 讚：{{category.likes}})</li> 
+  {% endfor %}
+ </ul>
+
+ <p>
+  <b>頁面：</b>
+ </p>
+ <table>
+  <tr>
+   <th>標題</th>
+   <th>所屬類別</th>
+   <th>網址</th>
+   <th>觀看次數</th>
+  </tr>
+  {% for page in pages %}
+  <tr>
+   <td>{{page.title}}</td>
+   <td>{{page.category.name}}</td>
+   <td>{{page.url}}</td>
+   <td>{{page.views}}</td>
+  </tr>
+  {% endfor %}
+ </table>
+ <br>
+ <p>
+  <a href="{% url 'main:main' %}">回首頁</a>
+ </p>
+
+</body>
+</html>
