@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'languageDB',
         'USER': 'language',
-        'PASSWORD': '00000001',
+        'PASSWORD': 'mnba3223',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -90,6 +90,7 @@ DATABASES = {
 
 
 # Internationalization
+
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'zh-hant'

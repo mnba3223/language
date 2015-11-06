@@ -44,7 +44,8 @@ span {
  </p>
  <ul>
   {% for category in categories %}
-  <li>{{ category }} (瀏覽：{{category.views}}, 讚：{{category.likes}})</li> 
+  <li>{{ category }} (瀏覽：{{category.views}}, 讚：{{category.likes}}，Slug：
+{{category.slug}})</li> 
   {% endfor %}
  </ul>
 
