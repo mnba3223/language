@@ -1,22 +1,13 @@
-<!doctype html>
-{% load staticfiles %}
-<html>
-<head>
-<title>程式語言小百科</title>
-<meta charset=utf-8>
-<style>
-span{
-color: #ff0000;
-}
-</style>
-<link rel=stylesheet href={% static 'main/css/main.css' %}>
-</head>
-<body>
+{% extends "main/base.html" %}
+{% block heading %}首頁{% endblock %}
+{% block content %}
+
 <h1>Django 說--Hello world!</h1>
 <p>{{message}}</p>
 <p>現在時間： <span>{{time}}<span></p>
 <a href="{% url 'wiki:wiki' %}">到wiki</a>
 <br>
 <a href="{% url 'wiki:about' %}">關於程式語言小百科</a>
-</body>
-</html>
+<br>
+{% endblock %}
+

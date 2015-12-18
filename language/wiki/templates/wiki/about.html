@@ -1,17 +1,12 @@
-<!doctype html>
+{% extends "main/base.html" %}
 {% load staticfiles %}
-<html>
-<head>
-<title>程式語言小百科</title>
-<meta charset=utf-8>
-<link rel=stylesheet href={% static 'main/css/main.css' %}>
-</head>
-<body>
-<h1>這裡是『關於程式語言小百科』</h1>
+{% block heading %}關於{% endblock %}
+{% block content %}
+
 {% url 'main:main' as main %}
 <br>
-我們提供許多程式語言的相關知識，歡迎巡覽.
+<p>我們提供許多程式語言的相關知識，歡迎巡覽.</p>
 <br><br>
 <a href="{{main}}">回首頁</a>
-</body>
-</html>
+<p><img src={% static 'main/img/proglang.png' %} alt=程式語言影像></p>
+{% endblock %}
