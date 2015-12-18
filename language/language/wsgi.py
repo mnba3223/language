@@ -17,6 +17,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "language.settings")
 
 if settings.DEBUG==True:
     application = get_wsgi_application()
-else: # Running on Heroku
+else:   # Running on Heroku
     from dj_static import Cling
     application = Cling(get_wsgi_application())

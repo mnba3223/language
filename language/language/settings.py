@@ -56,7 +56,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'language.urls'
-if DEBUG==True: # Running on the development environment
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -72,33 +72,27 @@ TEMPLATES = [
         },
     },
 ]
+
+WSGI_APPLICATION = 'language.wsgi.application'
+
+
+if DEBUG==True: # Running on the development environment
+    DATABASES = {
+            'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'languageDB',
+            'USER': 'language',
+            'PASSWORD': 'xxxxxxxx',
+            'HOST': 'localhost',
+            'PORT': '', # Set to empty string for default.
+        }
+    }
 else: # Running on Heroku
     # Parse database configuration from $DATABASE_URL
     import dj_database_url
     DATABASES = {'default':dj_database_url.config()}
     # Honor the 'X-Forwarded-Proto' header for request.is_secure()
-     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-WSGI_APPLICATION = 'language.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'languageDB',
-            'USER': 'language',
-            'PASSWORD': 'mnba3223',
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    }
-
-
-   
-# Internationalization
-
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'zh-hant'
@@ -116,6 +110,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-
-if DEBUG==False: # Running on Heroku
-    STATIC_ROOT = 'staticfiles'
