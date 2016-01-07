@@ -7,14 +7,15 @@ class Category(models.Model):
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
    
+   
     def save(self, *args, **kwargs):
         self.name = self.name.replace(' ', '-')
         super(Category, self).save(*args, **kwargs)
         
-    
-    
+        
     def __str__(self):
         return self.name
+
 
 class Page(models.Model):
     category = models.ForeignKey(Category)

@@ -81,9 +81,9 @@ if DEBUG==True: # Running on the development environment
     DATABASES = {
             'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'languageDB',
-            'USER': 'language',
-            'PASSWORD': 'mnba3223',
+            'NAME': 'computeDB',
+            'USER': 'compute',
+            'PASSWORD': '123456',
             'HOST': 'localhost',
             'PORT': '', # Set to empty string for default.
         }

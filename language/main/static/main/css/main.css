@@ -1,5 +1,5 @@
 body{
-    background: lightgray;
+    background: white;
 }
 
 
@@ -11,3 +11,9 @@ body{
 .error {
  color: red;
 }
+
+.main-log{
+ margin-right: 50px;
+
+}
+

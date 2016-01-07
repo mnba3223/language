@@ -9,13 +9,14 @@
 {% endif %}
 {% if user.is_authenticated %}
 <p><a href={% url 'wiki:about' %}>關於</a></p>
-<p><a href={% url 'wiki:wiki' %}>程式百科</a></p>
+<p><a href={% url 'wiki:wiki' %}>商品總攬</a></p>
  <p><a href={% url 'account:userLogout' %}>登出 ({{user.username}})</a></p>
 {% else %}
+<p align="right" valign="top" class="main-log"><a href={% url 'account:register' %}>註冊</a>&nbsp;&nbsp;<a href={% url 'account:userLogin' %}>登入</a></p>
 <p><a href={% url 'wiki:about' %}>關於</a></p>
-<p><a href={% url 'wiki:wiki' %}>程式百科</a></p>
-<p><a href={% url 'account:register' %}>註冊</a></p>
-<p><a href={% url 'account:userLogin' %}>登入</a></p>
+<p><a href={% url 'wiki:wiki' %}>商品總攬</a></p>
+
+
 <br>
 {% endif %}
 
