@@ -1,3 +1,13 @@
 body{
     background: lightgray;
 }
+
+
+.success {
+ color: blue;
+ font-size: 120%;
+}
+
+.error {
+ color: red;
+}

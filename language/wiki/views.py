@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from wiki.models import Category, Page
 from wiki.forms import CategoryForm, PageForm
-
+from django.contrib.auth.decorators import login_required
 
 
 def wiki(request):
@@ -10,9 +10,11 @@ def wiki(request):
     context = {'categories':categories}
     return render(request, 'wiki/wiki.html', context)
 
+
 def about(request):
     context = {}
     return render(request, 'wiki/about.html', context)
+
 
 def category(request, categoryID):
     context = {}
@@ -23,7 +25,7 @@ def category(request, categoryID):
     except Category.DoesNotExist:
         pass
     return render(request, 'wiki/category.html', context)
-
+@login_required
 def addCategory(request):
     template = 'wiki/addCategory.html'
     if request.method=='GET':
@@ -35,7 +37,7 @@ def addCategory(request):
     form.save()
     return redirect(reverse('wiki:wiki'))
     # Or try this: return wiki(request) 
-
+@login_required
 def addPage(request, categoryID):
     template = 'wiki/addPage.html'
     try:
@@ -77,7 +79,7 @@ def deletePage(request, pageID):
         categoryID = ''
     return redirect(reverse('wiki:category', args=(categoryID, )))
 
-
+@login_required
 def updateCategory(request, categoryID):
     template = 'wiki/updateCategory.html'
     try:
@@ -94,7 +96,7 @@ def updateCategory(request, categoryID):
     form.save()
     return redirect(reverse('wiki:wiki'))
                     
-                    
+@login_required               
 def updatePage(request, pageID):
     template = 'wiki/updatePage.html'
     try:
